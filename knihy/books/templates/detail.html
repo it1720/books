@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Detail knihy{% endblock %}
+
+{% block content %}
+    <hr>
+    <h2 class="text-center">{{ kniha.nazev }}</h2>
+    <hr>
+    <div class="row">
+        <div class="col text-center">
+            <img src="{{ kniha.foto.url }}" alt="{{ kniha.nazev }}" width="75%">
+        </div>
+        <div class="col">
+            <b>Cena:</b><p> {{ kniha.cena }} kč</p>
+            <hr>
+            <b>Hodnocení:</b><p style="color:yellow;"> {% for star in "x"|ljust:kniha.hodnoceni %} * {% endfor %}</p>
+            <hr>
+            <p><b>Kategorie:</b> {{ kniha.kategorie.oblast }} - {{ kniha.kategorie.typ }}</p>
+            <hr>
+            <p><b>Popis:</b> {{ kniha.popis }}</p>
+        </div>
+    </div>
+    <p class="text-center" style="padding-bottom:15px"><a href="../list">Seznam knih</a></p>
+{% endblock %}
